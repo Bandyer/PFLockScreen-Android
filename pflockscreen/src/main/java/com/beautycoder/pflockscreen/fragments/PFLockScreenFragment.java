@@ -43,7 +43,7 @@ import com.beautycoder.pflockscreen.views.PFCodeView;
  * Lock Screen Fragment. Support pin code authorization and
  * fingerprint authorization for API 23 +.
  */
-public class PFLockScreenFragment extends Fragment {
+public class PFLockScreenFragment extends DialogFragment {
 
     private static final String TAG = PFLockScreenFragment.class.getName();
 
