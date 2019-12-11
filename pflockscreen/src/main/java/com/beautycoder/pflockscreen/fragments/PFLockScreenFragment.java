@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 
 import android.content.Context;
@@ -448,25 +449,6 @@ public class PFLockScreenFragment extends Fragment {
         this.mOnLeftButtonClickListener = onLeftButtonClickListener;
     }
 
-    /*private void showFingerprintAlertDialog(Context context) {
-        new AlertDialog.Builder(context).setTitle("Fingerprint").setMessage(
-                "Would you like to use fingerprint for future login?")
-                .setPositiveButton("Use fingerprint", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //if (isFingerprintsExists(getContext())) {
-                    //PFFingerprintPinCodeHelper.getInstance().encodePin()
-                //}
-            }
-        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        }).create().show();
-    }*/
-
-
     /**
      * Set OnPFLockScreenCodeCreateListener.
      *
@@ -546,124 +528,3 @@ public class PFLockScreenFragment extends Fragment {
 
 
 }
-
-
-//private static final String KEY_STORE_NAME = "fp_lock_screen_key_store";
-//private Cipher cipher;
-//private KeyStore keyStore;
-//private KeyguardManager keyguardManager;
-//private static KeyGenerator keyGenerator;
-//private Cipher defaultCipher;
-
-
- /* try {
-            generateKey();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (NoSuchProviderException e) {
-            e.printStackTrace();
-        }
-        keyguardManager = (KeyguardManager) getContext().getSystemService(KEYGUARD_SERVICE);*/
-
-        /*if (!isFingerprintApiAvailable(getContext())) {
-            mOnFingerprintButton.setImageDrawable(getResources()
-                    .getDrawable(R.drawable.delete_lockscreen_pf));
-        }
-        try {
-            defaultCipher = Cipher.getInstance(KeyProperties.KEY_ALGORITHM_AES + "/"
-                    + KeyProperties.BLOCK_MODE_CBC + "/"
-                    + KeyProperties.ENCRYPTION_PADDING_PKCS7);
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
-            throw new RuntimeException("Failed to get an instance of Cipher", e);
-        }
-        prepareSensor();*/
-
-//private boolean isDeviceLockScreenIsProtected(Context context) {
-// return keyguardManager.isKeyguardSecure();
-//}
-
-
-    /*private void prepareSensor() {
-            cipherInit();
-            FingerprintManagerCompat.CryptoObject cryptoObject = new FingerprintManagerCompat.CryptoObject(cipher);
-            if (cryptoObject != null) {
-                Toast.makeText(getContext(), "use fingerprint to login", Toast.LENGTH_LONG).show();
-                FingerprintHelper mFingerprintHelper = new FingerprintHelper(this.getContext());
-                mFingerprintHelper.startAuth(cryptoObject);
-            }
-    }
-
-
-    public class FingerprintHelper extends FingerprintManagerCompat.AuthenticationCallback {
-        private Context mContext;
-        private CancellationSignal mCancellationSignal;
-
-        FingerprintHelper(Context context) {
-            mContext = context;
-        }
-
-        void startAuth(FingerprintManagerCompat.CryptoObject cryptoObject) {
-            mCancellationSignal = new CancellationSignal();
-            FingerprintManagerCompat manager = FingerprintManagerCompat.from(mContext);
-            manager.authenticate(cryptoObject, 0, mCancellationSignal, this, null);
-        }
-
-        void cancel() {
-            if (mCancellationSignal != null) {
-                mCancellationSignal.cancel();
-            }
-        }
-
-        @Override
-        public void onAuthenticationError(int errMsgId, CharSequence errString) {
-            Toast.makeText(mContext, errString, Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onAuthenticationHelp(int helpMsgId, CharSequence helpString) {
-            Toast.makeText(mContext, helpString, Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onAuthenticationSucceeded(FingerprintManagerCompat.AuthenticationResult result) {
-            Cipher cipher = result.getCryptoObject().getCipher();
-            Toast.makeText(mContext, "success", Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onAuthenticationFailed() {
-            Toast.makeText(mContext, "try again", Toast.LENGTH_SHORT).show();
-        }
-
-    }*/
-
-    /*
-
-    public boolean cipherInit() {
-        try {
-            cipher = Cipher.getInstance(
-                    KeyProperties.KEY_ALGORITHM_AES + "/"
-                            + KeyProperties.BLOCK_MODE_CBC + "/"
-                            + KeyProperties.ENCRYPTION_PADDING_PKCS7);
-        } catch (NoSuchAlgorithmException |
-                NoSuchPaddingException e) {
-            throw new RuntimeException("Failed to get Cipher", e);
-        }
-
-        try {
-            keyStore = KeyStore.getInstance("AndroidKeyStore");
-            keyStore.load(null);
-            SecretKey key = (SecretKey) keyStore.getKey("key_name",
-                    null);
-            cipher.init(Cipher.ENCRYPT_MODE, key);
-            return true;
-        } catch (KeyPermanentlyInvalidatedException e) {
-            return false;
-        } catch (KeyStoreException | CertificateException
-                | UnrecoverableKeyException | IOException
-                | NoSuchAlgorithmException | InvalidKeyException e) {
-            throw new RuntimeException("Failed to init Cipher", e);
-        }
-    }*/
-
-
